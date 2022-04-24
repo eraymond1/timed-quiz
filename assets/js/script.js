@@ -11,10 +11,10 @@ var quizQuestions = [
 
     {
         question: "Inside which HTML element do we put the JavaScript?",
-        a: "<scripting>",
-        b: "<script>",
-        c: "<js>",
-        d: "<javascript",
+        a: "scripting tag",
+        b: "script tag",
+        c: "js tag",
+        d: "javascript tag",
         ans: "b",
     },
 
@@ -32,7 +32,7 @@ var quizQuestions = [
         a: "The <body> section",
         b: "The <head> section",
         c: "Both the <head> section and the <body> section are correct",
-        d: "The <header> section",
+        d: "The header section",
         ans: "c",
     },
 ];
@@ -42,26 +42,23 @@ var quizScore = 0;
 
 var quizContainer = document.getElementById("quiz");
 var displayQuestion = document.getElementById("questionText");
-const answersEl = document.querySelectorAll(".answer");
+//const answersEl = document.querySelectorAll(".answer");
 var answerLine = document.getElementById("answer-line");
-const click = document.querySelectorAll(".btn-answer");
+//const click = document.querySelectorAll(".answer");
 
 var posAnswer_a = document.getElementById("a");
 var posAnswer_b = document.getElementById("b");
 var posAnswer_c = document.getElementById("c");
 var posAnswer_d = document.getElementById("d");
 
-
-
-
-
-
 quiz();
+
 
 function quiz() {
 
 var runQuiz = quizQuestions[currentQuiz];
-console.log(runQuiz);
+//console.log(runQuiz);
+
 
 //document.getElementById("question").innerHTML = text;
   displayQuestion.innerText = runQuiz.question;
@@ -71,35 +68,58 @@ console.log(runQuiz);
     posAnswer_c.innerHTML = runQuiz.c;
     posAnswer_d.innerHTML = runQuiz.d;
 
-    if(answersEl.click){
-
-        answer =answersEl.id;
-        if (answer === runQuiz.ans){
-            answerLine.innerHTML = "Correct!";
-        }else {
-            answerLine.innerHTML = "Inccorect!";
-        }
-    }
-            
-                
-    [posAnswer_a, posAnswer_b, posAnswer_c, posAnswer_d].forEach(element => {
-        element.addEventListener("click", (e)=> {
-            // console.log(e);
-            var answer;
-            answer = element.id;
-            console.log(element);
-            if (answer === runQuiz.ans) {
-                answerLine.innerHTML = "Correct!";
-            
-    
-            }else {
-            
-                answerLine.innerHTML = "Incorrect!";
-            }
-        })
-    })
+   // answerLine.innerHTML = "";
 
 };
+
+
+[posAnswer_a, posAnswer_b, posAnswer_c, posAnswer_d].forEach(element => {
+    var answer;
+    element.addEventListener("click", (e)=> {
+                
+        answer = element.id;
+        
+        if (answer === quizQuestions[currentQuiz].ans) {
+            answerLine.innerHTML = "Correct!";
+            quizScore++;
+
+        }else {
+        
+            answerLine.innerHTML = "Incorrect!";
+        }
+
+        currentQuiz++;
+
+        if (currentQuiz < quizQuestions.length) {
+            setTimeout(() => {
+                answerLine.innerHTML= "";
+                quiz();
+            }, 1000)
+            
+           // answerLine.innerHTML = "";
+        } else {
+            console.log("quiz over, your score is " + quizScore);
+        }
+        //answerLine.innerHTML = "";
+
+    })
+
+
+   
+})
+
+
+
+
+
+
+
+
+    
+   
+
+
+
 
 
 
