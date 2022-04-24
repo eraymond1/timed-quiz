@@ -42,9 +42,7 @@ var quizScore = 0;
 
 var quizContainer = document.getElementById("quiz");
 var displayQuestion = document.getElementById("questionText");
-//const answersEl = document.querySelectorAll(".answer");
 var answerLine = document.getElementById("answer-line");
-//const click = document.querySelectorAll(".answer");
 
 var posAnswer_a = document.getElementById("a");
 var posAnswer_b = document.getElementById("b");
@@ -57,18 +55,18 @@ quiz();
 function quiz() {
 
 var runQuiz = quizQuestions[currentQuiz];
-//console.log(runQuiz);
 
 
-//document.getElementById("question").innerHTML = text;
+
+
   displayQuestion.innerText = runQuiz.question;
   console.log(runQuiz.question);
-    posAnswer_a.innerHTML = runQuiz.a;
-    posAnswer_b.innerHTML = runQuiz.b;
-    posAnswer_c.innerHTML = runQuiz.c;
-    posAnswer_d.innerHTML = runQuiz.d;
+    posAnswer_a.innerHTML = "1. " + runQuiz.a;
+    posAnswer_b.innerHTML = "2. " + runQuiz.b;
+    posAnswer_c.innerHTML = "3. " + runQuiz.c;
+    posAnswer_d.innerHTML = "4. " + runQuiz.d;
 
-   // answerLine.innerHTML = "";
+   
 
 };
 
@@ -96,11 +94,12 @@ var runQuiz = quizQuestions[currentQuiz];
                 quiz();
             }, 1000)
             
-           // answerLine.innerHTML = "";
+           
         } else {
+            answerLine.innerHTML = "The quiz has ended and your score is: " + quizScore;
             console.log("quiz over, your score is " + quizScore);
         }
-        //answerLine.innerHTML = "";
+        
 
     })
 

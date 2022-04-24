@@ -1,0 +1,27 @@
+header h1 {
+    text-align: center;
+}
+.answer {
+    width: auto;
+    background-color: blueviolet;
+    padding: 10% 0 10% 0;
+    border-radius: 10px;
+    color: white;
+}
+
+.quizInfo {
+    text-align: center;
+}
+
+.answer {
+    text-align: left;
+}
+
+.answer-block {
+    margin:auto;
+    width: 28%;
+}
+
+#answer-line {
+    text-align: center;
+}
