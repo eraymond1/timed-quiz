@@ -64,7 +64,7 @@ var posAnswer_d = document.getElementById("d");
 
 var initialForm = document.getElementById("save-initials").style.visibility = "hidden";
 var initialName = document.getElementById("l-name");
-var textField = document.getElementById("initials").value;
+var textField = document.getElementById("initials");
 var subBtn = document.getElementById("sub-btn");
 
 
@@ -150,18 +150,18 @@ var runQuiz = quizQuestions[currentQuiz];
             initialName.innerHTML = "Enter Initials:";
             //saveInitials();
 
-            subBtn.addEventListener("click", function() {
+            // subBtn.addEventListener("click", function() {
                 
                     
-                    //textField = document.getElementById("initials").value;
-                   // return capture;
-                  // localStorage.setItem("initials", textField);
+            //         //textField = document.getElementById("initials").value;
+            //        // return capture;
+            //       // localStorage.setItem("initials", textField);
 
-                //console.log(capture);
+            //     //console.log(capture);
                 
                
                 
-            })
+            // })
         }
         
 
